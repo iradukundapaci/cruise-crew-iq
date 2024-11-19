@@ -1,0 +1,62 @@
+.frame8 {
+  width: 139px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border-radius: 4px;
+  padding: 8px 24px 8px 16px;
+}
+.frame8 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.frame8 > :global(.__wab_flex-container) > *,
+.frame8 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame8 > :global(.__wab_flex-container) > picture > img,
+.frame8
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.vuesaxLinearLogout {
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.vuesaxLinearLogout2 {
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: #a65959;
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.text {
+  display: block;
+  font-size: 16px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 24px;
+  color: rgba(165, 88, 88, 1);
+  position: relative;
+}

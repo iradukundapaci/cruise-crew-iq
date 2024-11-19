@@ -1,0 +1,1541 @@
+.home {
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+}
+.navbar:global(.__wab_instance) {
+  position: relative;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.group24 {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  position: relative;
+  background: #f9f9f9;
+  flex-direction: row;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  align-self: stretch;
+  min-width: 0;
+  flex-shrink: 0;
+}
+.group24 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - 313px);
+  width: calc(100% + 313px);
+}
+.group24 > :global(.__wab_flex-container) > *,
+.group24 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.group24 > :global(.__wab_flex-container) > picture > img,
+.group24
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 313px;
+}
+.frame30 {
+  transform: translate(0.1419999999999959px, 0px);
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  flex-direction: column;
+  padding-left: 72px;
+}
+.frame30 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: calc(0px - 34px);
+  height: calc(100% + 34px);
+}
+.frame30 > :global(.__wab_flex-container) > *,
+.frame30 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame30 > :global(.__wab_flex-container) > picture > img,
+.frame30
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 34px;
+}
+.frame29 {
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+}
+.frame29 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: calc(0px - 25px);
+  height: calc(100% + 25px);
+}
+.frame29 > :global(.__wab_flex-container) > *,
+.frame29 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame29 > :global(.__wab_flex-container) > picture > img,
+.frame29
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 25px;
+}
+.text__pk4G {
+  display: block;
+  font-size: 50px;
+  font-family: "Dancing Script";
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  align-self: stretch;
+  position: relative;
+}
+.text__cnzi8 {
+  display: block;
+  font-size: 55px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(27, 27, 27, 1);
+  position: relative;
+  width: 401px;
+}
+.text__a16Ml {
+  display: block;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(27, 27, 27, 1);
+  position: relative;
+}
+.group29 {
+  width: 365px;
+  height: 55px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.bookBtn {
+  background: rgba(123, 105, 69, 1);
+  width: 165px;
+  height: 55px;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  flex-direction: row;
+  border-radius: 50px;
+  padding: 15px 35px;
+}
+.bookBtn > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - 10px);
+  width: calc(100% + 10px);
+}
+.bookBtn > :global(.__wab_flex-container) > *,
+.bookBtn > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.bookBtn > :global(.__wab_flex-container) > picture > img,
+.bookBtn
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 10px;
+}
+.text__kxrld {
+  display: block;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+}
+.rectangle5 {
+  background: url("/plasmic/cruise_crew_iq/images/mantis2Jpg.jpg") center center / cover no-repeat,
+    rgba(249, 249, 249, 1);
+  width: 100%;
+  height: 700px;
+  display: block;
+  position: relative;
+  top: auto;
+  left: auto;
+  min-width: 0;
+}
+.frame25 {
+  height: 745px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+.frame25 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  margin-top: calc(0px - 55px);
+  height: calc(100% + 55px);
+}
+.frame25 > :global(.__wab_flex-container) > *,
+.frame25 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame25 > :global(.__wab_flex-container) > picture > img,
+.frame25
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 55px;
+}
+.frame281 {
+  width: 427px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.frame281 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: calc(0px - 12px);
+  height: calc(100% + 12px);
+}
+.frame281 > :global(.__wab_flex-container) > *,
+.frame281 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame281 > :global(.__wab_flex-container) > picture > img,
+.frame281
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 12px;
+}
+.text__hv3Qq {
+  display: block;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  align-self: stretch;
+  position: relative;
+}
+.text__sIjji {
+  display: block;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  align-self: stretch;
+  position: relative;
+}
+.row1 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.row1 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 33px);
+  width: calc(100% + 33px);
+}
+.row1 > :global(.__wab_flex-container) > *,
+.row1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.row1 > :global(.__wab_flex-container) > picture > img,
+.row1 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 33px;
+}
+.facility1 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle8 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group9 {
+  width: 156px;
+  height: 92px;
+  display: block;
+  position: absolute;
+  top: 79px;
+  left: 62px;
+}
+.text___7KP {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 62px;
+  left: 0px;
+}
+.svg__wuXev {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 55px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 51px;
+}
+.facility7 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle9 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group10 {
+  width: 57px;
+  height: 92px;
+  display: block;
+  position: absolute;
+  top: 79px;
+  left: 112px;
+}
+.text__r2XnH {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 62px;
+  left: 10px;
+}
+.svg___38JkS {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 57px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.facility8 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle10 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group11 {
+  width: 96px;
+  height: 92px;
+  display: block;
+  position: absolute;
+  top: 79px;
+  left: 92px;
+}
+.text__nYXR {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 62px;
+  left: 0px;
+}
+.svg__zOgOi {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 28px;
+}
+.facility9 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle11 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group12 {
+  width: 67px;
+  height: 92px;
+  display: block;
+  position: absolute;
+  top: 87px;
+  left: 107px;
+}
+.text__vsomC {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 62px;
+  left: 9px;
+}
+.svg__wKxR2 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 67px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.row2 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.row2 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 33px);
+  width: calc(100% + 33px);
+}
+.row2 > :global(.__wab_flex-container) > *,
+.row2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.row2 > :global(.__wab_flex-container) > picture > img,
+.row2 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 33px;
+}
+.facility10 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle12 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group13 {
+  width: 133px;
+  height: 93px;
+  display: block;
+  position: absolute;
+  top: 85px;
+  left: 73px;
+}
+.text___9Yc4R {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 63px;
+  left: 0px;
+}
+.svg__eIaTi {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 55px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 39px;
+}
+.facility11 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle13 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group14 {
+  width: 100px;
+  height: 93px;
+  display: block;
+  position: absolute;
+  top: 85px;
+  left: 90px;
+}
+.text__bIhZ6 {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 63px;
+  left: 0px;
+}
+.svg__ndsp1 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 30px;
+}
+.facility12 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle14 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group15 {
+  width: 82px;
+  height: 93px;
+  display: block;
+  position: absolute;
+  top: 85px;
+  left: 99px;
+}
+.text__p1Big {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 63px;
+  left: 0px;
+}
+.svg__dJbtU {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 32px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 25px;
+}
+.facility13 {
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle15 {
+  background: rgba(249, 249, 249, 1);
+  width: 280px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+}
+.group16 {
+  width: 144px;
+  height: 85px;
+  display: block;
+  position: absolute;
+  top: 85px;
+  left: 68px;
+}
+.text__tqBtF {
+  display: block;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(123, 105, 69, 1);
+  position: absolute;
+  top: 55px;
+  left: 0px;
+}
+.svg__stbJ {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 42px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 51px;
+}
+.viewRooms {
+  background: url("/plasmic/cruise_crew_iq/images/mantisKivuQueenUburangaJpg.jpg") center center / cover no-repeat,
+    rgba(123, 105, 69, 0.8);
+  height: 650px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: auto;
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+.viewRooms > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-top: calc(0px - 64px);
+  height: calc(100% + 64px);
+}
+.viewRooms > :global(.__wab_flex-container) > *,
+.viewRooms > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.viewRooms > :global(.__wab_flex-container) > picture > img,
+.viewRooms
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 64px;
+}
+.title {
+  width: 518px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.title > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(0px - 14px);
+  height: calc(100% + 14px);
+}
+.title > :global(.__wab_flex-container) > *,
+.title > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.title > :global(.__wab_flex-container) > picture > img,
+.title > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 14px;
+}
+.text__b5Bd {
+  display: block;
+  font-size: 50px;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(255, 255, 255, 1);
+  align-self: stretch;
+  position: relative;
+}
+.rectangle16 {
+  background: rgba(255, 255, 255, 1);
+  width: 132px;
+  height: 6px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.text__wUqOh {
+  display: block;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(255, 255, 255, 1);
+  align-self: stretch;
+  position: relative;
+}
+.roomsType {
+  height: 401px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+.roomsType > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: calc(0px - 64px);
+  width: calc(100% + 64px);
+}
+.roomsType > :global(.__wab_flex-container) > *,
+.roomsType > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.roomsType > :global(.__wab_flex-container) > picture > img,
+.roomsType
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 64px;
+}
+.room1 {
+  background: rgba(255, 255, 255, 1);
+  width: 367px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 28px 26px;
+}
+.room1 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.room1 > :global(.__wab_flex-container) > *,
+.room1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.room1 > :global(.__wab_flex-container) > picture > img,
+.room1 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 10px;
+}
+.rectangle17 {
+  background: url("/plasmic/cruise_crew_iq/images/rectangle10.jpg") center center / cover no-repeat,
+    rgba(176, 176, 176, 1);
+  width: 314px;
+  height: 300px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+.text__xCrrw {
+  display: block;
+  font-size: 17px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  align-self: stretch;
+  position: relative;
+}
+.room2 {
+  background: rgba(255, 255, 255, 1);
+  width: 367px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 28px 26px;
+}
+.room2 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: calc(0px - 20px);
+  height: calc(100% + 20px);
+}
+.room2 > :global(.__wab_flex-container) > *,
+.room2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.room2 > :global(.__wab_flex-container) > picture > img,
+.room2 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 20px;
+}
+.rectangle18 {
+  background: url("/plasmic/cruise_crew_iq/images/rectangle11.jpg") center center / cover no-repeat,
+    rgba(176, 176, 176, 1);
+  width: 314px;
+  height: 300px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+.text__yXrlC {
+  display: block;
+  font-size: 17px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  align-self: stretch;
+  position: relative;
+  height: 40px;
+  flex-shrink: 0;
+}
+.room4 {
+  background: rgba(255, 255, 255, 1);
+  width: 367px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 28px 26px;
+}
+.room4 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: calc(0px - 20px);
+  height: calc(100% + 20px);
+}
+.room4 > :global(.__wab_flex-container) > *,
+.room4 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.room4 > :global(.__wab_flex-container) > picture > img,
+.room4 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 20px;
+}
+.rectangle19 {
+  background: url("/plasmic/cruise_crew_iq/images/rectangle11.jpg") center center / cover no-repeat,
+    rgba(176, 176, 176, 1);
+  width: 314px;
+  height: 300px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+.text__xSoz1 {
+  display: block;
+  font-size: 17px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+}
+.frame27 {
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.frame27 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: calc(0px - 65px);
+  height: calc(100% + 65px);
+}
+.frame27 > :global(.__wab_flex-container) > *,
+.frame27 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame27 > :global(.__wab_flex-container) > picture > img,
+.frame27
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 65px;
+}
+.text__yg05 {
+  display: block;
+  font-size: 50px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+}
+.frame4 {
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.testimony1 {
+  background: linear-gradient(rgba(249, 249, 249, 1), rgba(249, 249, 249, 1)),
+    url("/plasmic/cruise_crew_iq/images/testimony1.jpg") center center / cover no-repeat,
+    rgba(216, 216, 216, 1);
+  width: 470px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 27px 20px;
+}
+.testimony1 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 49px);
+  height: calc(100% + 49px);
+}
+.testimony1 > :global(.__wab_flex-container) > *,
+.testimony1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.testimony1 > :global(.__wab_flex-container) > picture > img,
+.testimony1
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 49px;
+}
+.frame282 {
+  width: 399px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame282 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: calc(0px - 235px);
+  width: calc(100% + 235px);
+}
+.frame282 > :global(.__wab_flex-container) > *,
+.frame282 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame282 > :global(.__wab_flex-container) > picture > img,
+.frame282
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 235px;
+}
+.text__pgKnq {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+}
+.rating {
+  width: 90px;
+  height: 13px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle20 {
+  background: rgba(255, 255, 255, 1);
+  width: 120px;
+  height: 36px;
+  display: block;
+  position: absolute;
+  top: -11px;
+  left: -15px;
+  border-radius: 5px;
+}
+.svg__mszwp {
+  object-fit: cover;
+  max-width: 100%;
+  color: #ffce31;
+  width: 89.684px;
+  height: 13px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.frame283 {
+  width: 427px;
+  height: 100px;
+  display: block;
+  position: relative;
+  margin-bottom: 0px;
+  flex-shrink: 0;
+}
+.svg__ssysh {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 6px;
+}
+.theServiceAtTheHotelMonteleoneWasExceptionalThereWasAbsolutelyNoIssueThatWasNotAddressedTimelyAndWithSatisfactoryResultsWeWereParticularyImpressedWithHowTheHotelStaffAnticipatedOurNeedsPeriodicallyComingByTheBoardRoomToCheckWithUsNumerousConferenceAttendeesCommentedOnTheQualityOfTheFoodTheQualityOfTheServiceAndOverallPositiveAttitudeTowardTheConferenceSiteParticularNoteworthyIsTheLongevityOfTheStaffAndThatSenseOfInvestmentInTheSuccessOfEveryEventIUsuallyOfferSuggestionsForImprovementsPartOfBeingAMarketingProfessorButThereIsAbsolutelyNothingThatCouldBeImprovedYouHaveSetTheBarVeryHigh {
+  display: block;
+  font-size: 15px;
+  text-align: justify;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  width: 414px;
+  transform: translate(0.19899999999999984px, 0px);
+}
+.svg__jzrO7 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 77px;
+  left: 69px;
+}
+.frame284 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame284 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.frame284 > :global(.__wab_flex-container) > *,
+.frame284 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame284 > :global(.__wab_flex-container) > picture > img,
+.frame284
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 15px;
+}
+.img__szXaK {
+  object-fit: cover;
+  max-width: 100%;
+  width: 42px;
+  height: 42px;
+  display: block !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.img__szXaK > picture > img {
+  object-fit: cover;
+}
+.text__lDo78 {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+  height: auto;
+}
+.testimony4 {
+  background: linear-gradient(rgba(249, 249, 249, 1), rgba(249, 249, 249, 1)),
+    url("/plasmic/cruise_crew_iq/images/testimony1.jpg") center center / cover no-repeat,
+    rgba(216, 216, 216, 1);
+  width: 470px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 27px 20px;
+}
+.testimony4 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 49px);
+  height: calc(100% + 49px);
+}
+.testimony4 > :global(.__wab_flex-container) > *,
+.testimony4 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.testimony4 > :global(.__wab_flex-container) > picture > img,
+.testimony4
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 49px;
+}
+.frame285 {
+  width: 399px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame285 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: calc(0px - 235px);
+  width: calc(100% + 235px);
+}
+.frame285 > :global(.__wab_flex-container) > *,
+.frame285 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame285 > :global(.__wab_flex-container) > picture > img,
+.frame285
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 235px;
+}
+.text__zGydv {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+}
+.rating2 {
+  width: 90px;
+  height: 13px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle21 {
+  background: rgba(255, 255, 255, 1);
+  width: 120px;
+  height: 36px;
+  display: block;
+  position: absolute;
+  top: -11px;
+  left: -15px;
+  border-radius: 5px;
+}
+.svg__mn4To {
+  object-fit: cover;
+  max-width: 100%;
+  color: #ffce31;
+  width: 89.684px;
+  height: 13px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.frame286 {
+  width: 427px;
+  height: 98px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.svg__uLpGa {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 6px;
+}
+.theServiceAtTheHotelMonteleoneWasExceptionalThereWasAbsolutelyNoIssueThatWasNotAddressedTimelyAndWithSatisfactoryResultsWeWereParticularyImpressedWithHowTheHotelStaffAnticipatedOurNeedsPeriodicallyComingByTheBoardRoomToCheckWithUsNumerousConferenceAttendeesCommentedOnTheQualityOfTheFoodTheQualityOfTheServiceAndOverallPositiveAttitudeTowardTheConferenceSiteParticularNoteworthyIsTheLongevityOfTheStaffAndThatSenseOfInvestmentInTheSuccessOfEveryEventIUsuallyOfferSuggestionsForImprovementsPartOfBeingAMarketingProfessorButThereIsAbsolutelyNothingThatCouldBeImprovedYouHaveSetTheBarVeryHigh2 {
+  display: block;
+  font-size: 15px;
+  text-align: justify;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  width: 414px;
+  transform: translate(0.19899999999999984px, 0px);
+  padding-top: 0px;
+}
+.svg___6Q7H {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 77px;
+  left: 38px;
+}
+.frame287 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame287 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.frame287 > :global(.__wab_flex-container) > *,
+.frame287 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame287 > :global(.__wab_flex-container) > picture > img,
+.frame287
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 15px;
+}
+.img__yZh1R {
+  object-fit: cover;
+  max-width: 100%;
+  width: 42px;
+  height: 42px;
+  display: block !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.img__yZh1R > picture > img {
+  object-fit: cover;
+}
+.text__fdHf {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+}
+.testimony5 {
+  background: linear-gradient(rgba(249, 249, 249, 1), rgba(249, 249, 249, 1)),
+    url("/plasmic/cruise_crew_iq/images/testimony1.jpg") center center / cover no-repeat,
+    rgba(216, 216, 216, 1);
+  width: 470px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 27px 20px;
+}
+.testimony5 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 49px);
+  height: calc(100% + 49px);
+}
+.testimony5 > :global(.__wab_flex-container) > *,
+.testimony5 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.testimony5 > :global(.__wab_flex-container) > picture > img,
+.testimony5
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 49px;
+}
+.frame288 {
+  width: 399px;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame288 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: calc(0px - 235px);
+  width: calc(100% + 235px);
+}
+.frame288 > :global(.__wab_flex-container) > *,
+.frame288 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame288 > :global(.__wab_flex-container) > picture > img,
+.frame288
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 235px;
+}
+.text__qjTm {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+}
+.rating3 {
+  width: 90px;
+  height: 13px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.rectangle22 {
+  background: rgba(255, 255, 255, 1);
+  width: 120px;
+  height: 36px;
+  display: block;
+  position: absolute;
+  top: -11px;
+  left: -15px;
+  border-radius: 5px;
+}
+.svg__uwPoT {
+  object-fit: cover;
+  max-width: 100%;
+  color: #ffce31;
+  width: 89.684px;
+  height: 13px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.frame289 {
+  width: 427px;
+  height: 104px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.svg__vsawy {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 6px;
+}
+.theServiceAtTheHotelMonteleoneWasExceptionalThereWasAbsolutelyNoIssueThatWasNotAddressedTimelyAndWithSatisfactoryResultsWeWereParticularyImpressedWithHowTheHotelStaffAnticipatedOurNeedsPeriodicallyComingByTheBoardRoomToCheckWithUsNumerousConferenceAttendeesCommentedOnTheQualityOfTheFoodTheQualityOfTheServiceAndOverallPositiveAttitudeTowardTheConferenceSiteParticularNoteworthyIsTheLongevityOfTheStaffAndThatSenseOfInvestmentInTheSuccessOfEveryEventIUsuallyOfferSuggestionsForImprovementsPartOfBeingAMarketingProfessorButThereIsAbsolutelyNothingThatCouldBeImprovedYouHaveSetTheBarVeryHigh3 {
+  display: block;
+  font-size: 15px;
+  text-align: justify;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  width: 414px;
+  transform: translate(0.19899999999999984px, 0px);
+}
+.svg__h2Y26 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #7c6a46;
+  width: 23px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 63px;
+  left: 378px;
+}
+.frame290 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.frame290 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.frame290 > :global(.__wab_flex-container) > *,
+.frame290 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.frame290 > :global(.__wab_flex-container) > picture > img,
+.frame290
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 15px;
+}
+.img__l3XLh {
+  object-fit: cover;
+  max-width: 100%;
+  width: 42px;
+  height: 42px;
+  display: block !important;
+  position: relative;
+  flex-shrink: 0;
+}
+.img__l3XLh > picture > img {
+  object-fit: cover;
+}
+.text__gmFhE {
+  display: block;
+  font-size: 13px;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(69, 69, 69, 1);
+  position: relative;
+}
+.footer:global(.__wab_instance) {
+  flex-shrink: 0;
+}

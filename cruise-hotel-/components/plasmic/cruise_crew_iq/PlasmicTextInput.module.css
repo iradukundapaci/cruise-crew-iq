@@ -1,0 +1,24 @@
+.input {
+  width: 100%;
+  left: auto;
+  top: auto;
+  background: #ffffff00;
+  height: 48px;
+  min-height: 48px;
+  min-width: 0;
+  border-radius: 6px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid var(--token-EKJSiXa55xJa);
+}
+.inputisDisabled {
+  cursor: not-allowed;
+}
+.inputcolor_dark {
+  color: #ffffff;
+}
+.input::placeholder {
+  color: #706f6c;
+}
+.inputcolor_dark::placeholder {
+  color: #c8c7c1;
+}

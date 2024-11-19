@@ -1,0 +1,77 @@
+general:
+	- login: email and password
+	- signup: email,password, names (crew member)
+
+user type:
+	- client
+	- crew member
+	- admin
+client: book room
+
+crew member:
+	- crew profile (names, email, position(enum), qualification, experience, certification)
+	- view assigned task
+	- view profile
+	- emergency notifications
+
+admin:
+	- view crew profiles
+	- assign task based on position
+	- KPI(number of crew member, )
+	- KPI(piechart: bar chart for tracking completed tasks)
+	- send emergency notification
+	- upload/ download license
+	
+api routes:
+	auth:
+		- login (done)
+		- signup (done)
+		- logout (done)
+		- forgotpassword (done)
+		- resetpassword (done)
+		
+	customer:
+		- add cutomer (done)
+		- edit customer (done)
+		
+	allUsers:
+		- view own profile (done)
+		- update own profile (done)
+		- message crew member
+		- message chat ai
+		- view notifications
+		- view license list (done)
+		- view license info (done)
+		- download licence (done)
+		- get crew members for chatting
+		
+	crew:
+		- view assigned task (done)
+		- view course specific to my position
+		- view cerfications
+
+	admin:
+		- view crew members (done)
+		- delete crew members (done)
+		- view crew member profile (done)
+		- view tasks assigned
+		- create tasks (done)
+		- delete task (done)
+		- update task (done)
+		- send emergency notification
+		- view repoted incidents
+		- view incident information
+		- update incident status
+		- create license (done)
+		- update license (done)
+		- delete license (done)
+		- view customer (done)
+		- delete customer (done)
+		- add admin (done)
+		- delete admin (done)
+		- pause admin (done)
+		- activate admin (done)
+		- cards( customers, crew, tasks, rooms )
+		- view booking by month on barchart
+		- view occupied room on pie chart
+		
