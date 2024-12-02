@@ -24,6 +24,7 @@ import { RoomsModule } from "./rooms/rooms.module";
 import { BookingsModule } from "./bookings/bookings.module";
 import { AnalyticsModule } from "./analytics/analytics.module";
 import { ChatModule } from "./chat/chat.module";
+import { ScheduleModule } from './schedule/schedule.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { ChatModule } from "./chat/chat.module";
     BookingsModule,
     AnalyticsModule,
     ChatModule,
+    ScheduleModule,
   ],
   providers: [
     {

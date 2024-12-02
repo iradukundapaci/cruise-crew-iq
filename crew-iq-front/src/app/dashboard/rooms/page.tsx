@@ -64,6 +64,10 @@ export default function Page(): React.JSX.Element {
   const [page, setPage] = React.useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(5);
 
+  const [assignDialogOpen, setAssignDialogOpen] = React.useState(false);
+  const [roomToAssign, setRoomToAssign] = React.useState<Room | null>(null);
+  const [userEmail, setUserEmail] = React.useState('');
+
   // Modal state for creating/updating rooms
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [isEditMode, setIsEditMode] = React.useState<boolean>(false);
@@ -115,6 +119,9 @@ export default function Page(): React.JSX.Element {
           </IconButton>
           <IconButton onClick={() => handleDeleteRoom(row)}>
             <DeleteIcon />
+          </IconButton>
+          <IconButton onClick={() => handleAssignRoom(row)}>
+            <PlusIcon />
           </IconButton>
         </Stack>
       ),
@@ -176,6 +183,11 @@ export default function Page(): React.JSX.Element {
     });
   };
 
+  const handleAssignRoom = (room: Room) => {
+    setRoomToAssign(room);
+    setAssignDialogOpen(true);
+  };
+
   const handleCloseModal = () => {
     setModalOpen(false);
   };
@@ -186,6 +198,32 @@ export default function Page(): React.JSX.Element {
       ...prevRoom,
       [name]: name === 'capacity' || name === 'price' ? Number(value) : value,
     }));
+  };
+
+  const confirmAssignRoom = async () => {
+    if (!roomToAssign || !userEmail) return;
+
+    try {
+      await axios.patch(
+        'http://localhost:8000/api/v1/rooms',
+        { roomId: roomToAssign.id, userEmail },
+        {
+          headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
+      showNotification(`Room ${roomToAssign.roomNumber} assigned to ${userEmail}`, 'success');
+      setAssignDialogOpen(false);
+      setUserEmail('');
+      setRoomToAssign(null);
+      setPage(page);
+    } catch (error) {
+      console.error('Failed to assign room', error);
+      showNotification('Failed to assign room', 'error');
+    }
   };
 
   const handleCreateRoom = async () => {
@@ -376,6 +414,29 @@ export default function Page(): React.JSX.Element {
           <Button onClick={() => setDeleteDialogOpen(false)}>Cancel</Button>
           <Button onClick={confirmDeleteRoom} color="error">
             Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={assignDialogOpen} onClose={() => setAssignDialogOpen(false)}>
+        <DialogTitle>Assign Room</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Assign room {roomToAssign?.roomNumber} to a user. Please enter the user's email address.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="User Email"
+            type="email"
+            fullWidth
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setAssignDialogOpen(false)}>Cancel</Button>
+          <Button onClick={confirmAssignRoom} color="primary">
+            Assign
           </Button>
         </DialogActions>
       </Dialog>

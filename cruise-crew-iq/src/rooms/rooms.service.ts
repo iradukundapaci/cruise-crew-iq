@@ -12,12 +12,15 @@ import { FetchRoomDto } from "./dto/fetch-room.dto";
 import { RoomDto } from "./dto/room.dto";
 import { UpdateRoomDto } from "./dto/update-room.dto";
 import { Room } from "./entities/room.entity";
+import { AssignRoomDto } from "./dto/assign-room.dto";
+import { CustomerService } from "src/customer/customer.service";
 
 @Injectable()
 export class RoomsService {
   constructor(
     @InjectRepository(Room)
     private readonly roomRepository: Repository<Room>,
+    private readonly customerService: CustomerService,
   ) {}
   async createRoom(createRoomDto: CreateRoomDto.Input): Promise<void> {
     const room = await this.findRoomByRoomNumber(createRoomDto.roomNumber);
@@ -113,6 +116,23 @@ export class RoomsService {
       throw new NotFoundException("Room not found");
     }
     room.occupied = !room.occupied;
+    await this.roomRepository.save(room);
+  }
+
+  async assignRoom(assignRoomDto: AssignRoomDto.Input) {
+    const room = await this.findRoomById(+assignRoomDto.roomId);
+
+    if (!room) {
+      throw new NotFoundException("Room not found");
+    }
+
+    const customer = await this.customerService.findCustomerByEmail(
+      assignRoomDto.userEmail,
+    );
+
+    room.occupied = true;
+    room.customer = customer;
+
     await this.roomRepository.save(room);
   }
 }

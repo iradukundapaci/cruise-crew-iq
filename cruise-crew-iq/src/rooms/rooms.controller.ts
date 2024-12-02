@@ -15,7 +15,6 @@ import {
 import { GenericResponse } from "src/__shared__/dto/generic-response.dto";
 import { plainToInstance } from "class-transformer";
 import { ApiTags } from "@nestjs/swagger";
-import { UserRole } from "src/__shared__/enums/user-role.enum";
 import { Authorize } from "src/auth/decorators/authorize.decorator";
 import { JwtGuard } from "src/auth/guards/jwt.guard";
 import { RoomsService } from "./rooms.service";
@@ -23,6 +22,7 @@ import { CreateRoomDto } from "./dto/create-room.dto";
 import { FetchRoomDto } from "./dto/fetch-room.dto";
 import { RoomDto } from "./dto/room.dto";
 import { UpdateRoomDto } from "./dto/update-room.dto";
+import { AssignRoomDto } from "./dto/assign-room.dto";
 
 @ApiTags("Rooms")
 @Controller("rooms")
@@ -88,6 +88,18 @@ export class RoomsController {
   async removeRoom(@Param("id") id: number): Promise<GenericResponse> {
     await this.roomsService.removeRoomById(id);
     return new GenericResponse("Room deleted successfully");
+  }
+
+  @PatchOperation("", "Assign room")
+  @OkResponse()
+  @Authorize(JwtGuard)
+  @ApiRequestBody(AssignRoomDto.Input)
+  @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
+  async assignRoom(
+    @Body() assignRoomDto: AssignRoomDto.Input,
+  ): Promise<GenericResponse> {
+    await this.roomsService.assignRoom(assignRoomDto);
+    return new GenericResponse("Room assigned successfully");
   }
 
   @PatchOperation(":id", "Update room status")

@@ -1,6 +1,7 @@
 import { AbstractEntity } from "src/__shared__/entities/abstract.entity";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { RoomType } from "../enums/RoomType.enum";
+import { Customer } from "src/customer/entities/customer.entity";
 
 @Entity({ name: "rooms" })
 export class Room extends AbstractEntity {
@@ -18,4 +19,8 @@ export class Room extends AbstractEntity {
 
   @Column()
   occupied: boolean = false;
+
+  @OneToOne(() => Customer, (customer) => customer.id)
+  @JoinColumn()
+  customer: Customer;
 }

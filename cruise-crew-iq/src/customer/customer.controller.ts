@@ -20,7 +20,6 @@ import { GenericResponse } from "src/__shared__/dto/generic-response.dto";
 import { CustomerDto } from "./dto/customer.dto";
 import { plainToInstance } from "class-transformer";
 import { ApiTags } from "@nestjs/swagger";
-import { UserRole } from "src/__shared__/enums/user-role.enum";
 import { Authorize } from "src/auth/decorators/authorize.decorator";
 import { JwtGuard } from "src/auth/guards/jwt.guard";
 
