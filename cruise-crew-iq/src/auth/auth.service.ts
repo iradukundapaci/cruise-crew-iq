@@ -62,10 +62,8 @@ export class AuthService {
       role: user.role,
     };
     const accessToken = this.tokenService.generateJwtToken(payload);
-    const refreshToken = this.tokenService.generateRefreshToken(user.id);
 
-    await this.usersService.updateRefreshToken(user.id, refreshToken);
-    return new SignInDto.Output(accessToken, refreshToken);
+    return new SignInDto.Output(accessToken);
   }
 
   async logout(userId: number): Promise<void> {
@@ -85,73 +83,5 @@ export class AuthService {
     const user = await this.usersService.findUserByEmail(email);
 
     if (!user) throw new NotFoundException("User not found");
-  }
-
-  async resetPassword(resetPasswordDto: ResetPasswordDto.Input): Promise<void> {
-    const { password, token } = resetPasswordDto;
-    const { email } = this.tokenService.getTokenPayload<{ email: string }>(
-      token,
-    );
-
-    if (!email) throw new BadRequestException("Invalid token");
-
-    const user = await this.usersService.findUserByEmail(email);
-    if (!user) throw new NotFoundException("User not found");
-
-    const hashedPassword = PasswordEncryption.hashPassword(password);
-    await this.usersService.updatePassword(user.id, hashedPassword);
-  }
-
-  async validateRefreshToken(
-    userId: number,
-    refreshToken: string,
-  ): Promise<User> {
-    const user = await this.usersService.findUserById(userId);
-
-    if (user.refreshToken !== refreshToken) throw new UnauthorizedException();
-
-    return user;
-  }
-
-  async verifyEmail(token: string): Promise<void> {
-    const { email } = this.tokenService.getTokenPayload<{ email: string }>(
-      token,
-    );
-    if (!email) {
-      throw new BadRequestException("Invalid token");
-    }
-
-    const user = await this.usersService.findUserByEmail(email);
-
-    if (!user) {
-      throw new NotFoundException("User not found");
-    }
-
-    if (user.verifiedAt) {
-      throw new BadRequestException("User already verified");
-    }
-
-    await this.usersService.verifyUser(user.id);
-  }
-
-  async refreshToken(user: User) {
-    const authUser = await this.usersService.findUserById(user.id);
-
-    if (!authUser) {
-      throw new UnauthorizedException();
-    }
-
-    const payload: IJwtPayload = {
-      sub: authUser.email,
-      id: authUser.id,
-      role: authUser.role,
-    };
-
-    const accessToken = this.tokenService.generateJwtToken(payload);
-    const refreshToken = this.tokenService.generateRefreshToken(authUser.id);
-
-    await this.usersService.updateRefreshToken(authUser.id, refreshToken);
-
-    return { accessToken, refreshToken };
   }
 }

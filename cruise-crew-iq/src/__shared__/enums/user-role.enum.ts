@@ -2,9 +2,7 @@ import { BadRequestException } from "@nestjs/common";
 
 export enum UserRole {
   ADMIN = "ADMIN",
-  CAPTAIN = "CAPTAIN",
-  CO_CAPTAIN = "CO-CAPTAIN",
-  CO_PILOT = "CO-PILOT",
+  CLERK = "CLERK",
   CREW = "CREW",
 }
 
@@ -14,6 +12,8 @@ export function getUserRole(role: string): UserRole {
       return UserRole.CREW;
     case "ADMIN":
       return UserRole.ADMIN;
+    case "CLERK":
+      return UserRole.CLERK;
     default:
       throw new BadRequestException(`Invalid role: ${role}`);
   }

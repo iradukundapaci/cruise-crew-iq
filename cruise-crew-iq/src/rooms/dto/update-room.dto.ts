@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsOptional,
-  IsEnum,
-  IsNumber,
-  IsBoolean,
-} from "class-validator";
+import { IsString, IsOptional, IsEnum, IsNumber } from "class-validator";
 import { RoomType } from "../enums/RoomType.enum";
 
 export namespace UpdateRoomDto {
@@ -24,10 +18,6 @@ export namespace UpdateRoomDto {
     @IsNumber()
     @IsOptional()
     price?: number;
-
-    @IsBoolean()
-    @IsOptional()
-    occupied?: boolean;
   }
   export class Output {
     roomNumber: string;

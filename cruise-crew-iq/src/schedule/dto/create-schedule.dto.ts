@@ -7,5 +7,8 @@ export namespace CreateScheduleDto {
 
     @IsNotEmpty()
     toDateTime: Date;
+
+    @IsNotEmpty()
+    location: string;
   }
 }

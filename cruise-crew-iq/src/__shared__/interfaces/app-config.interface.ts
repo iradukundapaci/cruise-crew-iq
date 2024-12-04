@@ -3,12 +3,10 @@ export interface IAppConfig {
   database: IDatabaseConfig;
   env?: string;
   jwt?: JwtConfig;
-  jwtRefresh?: JwtConfig;
   allowedOrigins?: string[];
   swaggerEnabled?: boolean;
   backdoor?: IBackdoorConfig;
   emails?: IEmailConfig;
-  url?: UrlConfig;
 }
 
 interface IEmailConfig {
@@ -33,9 +31,4 @@ interface IBackdoorConfig {
   enabled: boolean;
   username: string;
   password: string;
-}
-
-interface UrlConfig {
-  api?: string;
-  client?: string;
 }

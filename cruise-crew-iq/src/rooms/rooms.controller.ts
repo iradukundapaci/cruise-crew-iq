@@ -67,7 +67,7 @@ export class RoomsController {
     return new GenericResponse("Room retrieved successfully", output);
   }
 
-  @PostOperation(":id", "Update room")
+  @PatchOperation(":id", "Update room")
   @OkResponse()
   @Authorize(JwtGuard)
   @ApiRequestBody(UpdateRoomDto.Output)
@@ -79,15 +79,6 @@ export class RoomsController {
     let outPut = await this.roomsService.updateRoomById(id, updateRoomDto);
     outPut = plainToInstance(UpdateRoomDto.Output, outPut);
     return new GenericResponse("Room updated successfully", outPut);
-  }
-
-  @DeleteOperation(":id", "Delete room")
-  @OkResponse()
-  @Authorize(JwtGuard)
-  @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
-  async removeRoom(@Param("id") id: number): Promise<GenericResponse> {
-    await this.roomsService.removeRoomById(id);
-    return new GenericResponse("Room deleted successfully");
   }
 
   @PatchOperation("", "Assign room")
@@ -102,12 +93,20 @@ export class RoomsController {
     return new GenericResponse("Room assigned successfully");
   }
 
-  @PatchOperation(":id", "Update room status")
+  @PatchOperation("/checkout/:id", "Checkout room")
   @OkResponse()
-  @Authorize(JwtGuard)
   @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
   async updateRoomStatus(@Param("id") id: number): Promise<GenericResponse> {
     await this.roomsService.updateRoomStatus(id);
     return new GenericResponse("Room status updated successfully");
+  }
+
+  @DeleteOperation(":id", "Delete room")
+  @OkResponse()
+  @Authorize(JwtGuard)
+  @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
+  async removeRoom(@Param("id") id: number): Promise<GenericResponse> {
+    await this.roomsService.removeRoomById(id);
+    return new GenericResponse("Room deleted successfully");
   }
 }

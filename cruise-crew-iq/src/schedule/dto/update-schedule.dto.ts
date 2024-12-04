@@ -1,20 +1,19 @@
-import { IsString, IsNotEmpty, IsEmail } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export namespace UpdateScheduleDto {
   export class Input {
-    @IsString()
     @IsNotEmpty()
-    names: string;
-    @IsEmail()
+    fromDateTime: Date;
+
     @IsNotEmpty()
-    email: string;
-    @IsString()
+    toDateTime: Date;
+
     @IsNotEmpty()
-    phoneNumber: string;
+    location: string;
   }
   export class Output {
-    names: string;
-    email: string;
-    phoneNumber: string;
+    fromDateTime: Date;
+    toDateTime: Date;
+    location: string;
   }
 }

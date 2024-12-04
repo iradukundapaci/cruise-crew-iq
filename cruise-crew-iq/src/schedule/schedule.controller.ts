@@ -1,27 +1,27 @@
 import { Controller, Body, Param, Query } from "@nestjs/common";
 import { ScheduleService } from "./schedule.service";
 import { ApiTags } from "@nestjs/swagger";
-import {
-  ApiRequestBody,
-  CreatedResponse,
-  DeleteOperation,
-  ErrorResponses,
-  ForbiddenResponse,
-  GetOperation,
-  OkResponse,
-  PaginatedOkResponse,
-  PatchOperation,
-  PostOperation,
-  UnauthorizedResponse,
-} from "src/__shared__/decorators";
 import { plainToInstance } from "class-transformer";
-import { GenericResponse } from "src/__shared__/dto/generic-response.dto";
 import { Authorize } from "src/auth/decorators/authorize.decorator";
 import { JwtGuard } from "src/auth/guards/jwt.guard";
 import { CreateScheduleDto } from "./dto/create-schedule.dto";
 import { FetchScheduleDto } from "./dto/fetch-schedule.dto";
 import { ScheduleDto } from "./dto/customer.dto";
 import { UpdateScheduleDto } from "./dto/update-schedule.dto";
+import {
+  PostOperation,
+  CreatedResponse,
+  ApiRequestBody,
+  ErrorResponses,
+  UnauthorizedResponse,
+  ForbiddenResponse,
+  GetOperation,
+  PaginatedOkResponse,
+  OkResponse,
+  PatchOperation,
+  DeleteOperation,
+} from "src/__shared__/decorators";
+import { GenericResponse } from "src/__shared__/dto/generic-response.dto";
 
 @Controller("schedule")
 @ApiTags("Schedule")
@@ -42,7 +42,6 @@ export class ScheduleController {
 
   @GetOperation("", "Get all schedules")
   @PaginatedOkResponse(FetchScheduleDto.Output)
-  @Authorize(JwtGuard)
   @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
   async getAllSchedule(
     @Query() fetchScheduleDto: FetchScheduleDto.Input,
@@ -72,13 +71,9 @@ export class ScheduleController {
   async updateSchedule(
     @Param("id") id: number,
     @Body() updateScheduleDto: UpdateScheduleDto.Input,
-  ): Promise<GenericResponse<UpdateScheduleDto.Output>> {
-    let outPut = await this.scheduleService.updateScheduleById(
-      id,
-      updateScheduleDto,
-    );
-    outPut = plainToInstance(UpdateScheduleDto.Output, outPut);
-    return new GenericResponse("Schedule updated successfully", outPut);
+  ): Promise<GenericResponse> {
+    await this.scheduleService.updateScheduleById(id, updateScheduleDto);
+    return new GenericResponse("Schedule updated successfully");
   }
 
   @DeleteOperation(":id", "Delete schedule")

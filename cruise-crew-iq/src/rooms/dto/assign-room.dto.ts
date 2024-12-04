@@ -1,10 +1,10 @@
-import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsEmail, IsNotEmpty, IsNumber } from "class-validator";
 
 export namespace AssignRoomDto {
   export class Input {
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
-    roomId: string;
+    roomId: number;
 
     @IsNotEmpty()
     @IsEmail()

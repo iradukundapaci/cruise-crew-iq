@@ -8,7 +8,6 @@ import dayjs from 'dayjs';
 
 import { config } from '@/config';
 import { Budget } from '@/components/dashboard/overview/budget';
-import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
 import { LatestProducts } from '@/components/dashboard/overview/latest-products';
 import { Sales } from '@/components/dashboard/overview/sales';
 import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';

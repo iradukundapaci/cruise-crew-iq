@@ -52,19 +52,6 @@ export function DataTable({
         <Table sx={{ minWidth: '800px' }}>
           <TableHead>
             <TableRow>
-              <TableCell padding="checkbox">
-                <Checkbox
-                  checked={selectedAll}
-                  indeterminate={selectedSome}
-                  onChange={(event) => {
-                    if (event.target.checked) {
-                      selectAll();
-                    } else {
-                      deselectAll();
-                    }
-                  }}
-                />
-              </TableCell>
               {columns.map((column) => (
                 <TableCell key={column.key}>{column.label}</TableCell>
               ))}
@@ -76,18 +63,6 @@ export function DataTable({
 
               return (
                 <TableRow hover key={row.id} selected={isSelected}>
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={isSelected}
-                      onChange={(event) => {
-                        if (event.target.checked) {
-                          selectOne(row.id);
-                        } else {
-                          deselectOne(row.id);
-                        }
-                      }}
-                    />
-                  </TableCell>
                   {columns.map((column) => (
                     <TableCell key={column.key}>{column.render ? column.render(row) : row[column.key]}</TableCell>
                   ))}

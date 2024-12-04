@@ -182,8 +182,7 @@ export default function Page(): React.JSX.Element {
       setSnackbarMessage('License deleted successfully!');
       setSnackbarOpen(true);
       setDeleteDialogOpen(false);
-      setLicenseToDelete(null); // Clear the selected license
-      // Refresh the licenses list
+      setLicenseToDelete(null);
       fetchLicenses();
     } catch (error) {
       console.error('Failed to delete license', error);

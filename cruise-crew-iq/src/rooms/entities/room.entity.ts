@@ -20,7 +20,10 @@ export class Room extends AbstractEntity {
   @Column()
   occupied: boolean = false;
 
-  @OneToOne(() => Customer, (customer) => customer.id)
+  @OneToOne(() => Customer, (customer) => customer.id, {
+    cascade: true,
+    nullable: true,
+  })
   @JoinColumn()
   customer: Customer;
 }

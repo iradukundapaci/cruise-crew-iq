@@ -80,19 +80,18 @@ export class RoomsService {
     id: number,
     updateRoomDto: UpdateRoomDto.Input,
   ): Promise<RoomDto.Output> {
-    const room = await this.findRoomById(id);
+    let room = await this.findRoomById(id);
 
     if (!room) {
       throw new NotFoundException("Room not found");
     }
 
-    let updatedRoom = plainToInstance(Room, {
-      ...room,
-      ...updateRoomDto,
-    });
+    room.capacity = updateRoomDto.capacity || room.capacity;
+    room.roomType = updateRoomDto.roomType || room.roomType;
+    room.price = updateRoomDto.price || room.price;
 
-    updatedRoom = await this.roomRepository.save(updatedRoom);
-    return plainToInstance(RoomDto.Output, updatedRoom);
+    room = await this.roomRepository.save(room);
+    return plainToInstance(RoomDto.Output, room);
   }
 
   async removeRoomById(id: number): Promise<void> {
@@ -115,7 +114,13 @@ export class RoomsService {
     if (!room) {
       throw new NotFoundException("Room not found");
     }
-    room.occupied = !room.occupied;
+
+    if (!room.occupied) {
+      throw new ConflictException("Room is not occupied");
+    }
+
+    room.occupied = false;
+    room.customer = null;
     await this.roomRepository.save(room);
   }
 
@@ -124,6 +129,10 @@ export class RoomsService {
 
     if (!room) {
       throw new NotFoundException("Room not found");
+    }
+
+    if (room.occupied) {
+      throw new ConflictException("Room is already occupied");
     }
 
     const customer = await this.customerService.findCustomerByEmail(

@@ -10,7 +10,6 @@ import { appConfig } from "src/__shared__/config/app.config";
 export class TokenService {
   private readonly configService = appConfig();
   private readonly jwtConfig = this.configService.jwt;
-  private readonly jwtRefreshConfig = this.configService.jwtRefresh;
   private readonly jwtService = new JwtService();
 
   generateEmailToken(email: string): string {
@@ -27,14 +26,6 @@ export class TokenService {
     return this.jwtService.sign(payload, {
       expiresIn: this.jwtConfig.expiresIn,
       secret: this.jwtConfig.secret,
-    });
-  }
-
-  generateRefreshToken(userId: number): string {
-    const payload = { sub: userId };
-    return this.jwtService.sign(payload, {
-      expiresIn: this.jwtRefreshConfig.expiresIn,
-      secret: this.jwtRefreshConfig.secret,
     });
   }
 

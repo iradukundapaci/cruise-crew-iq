@@ -1,6 +1,8 @@
-export const verifyEmailTemplate = (
+export const dockLocationNotificationTemplate = (
   name: string,
-  verificationLink: string,
+  dockLocation: string,
+  dockingTime: string,
+  departureTime: string,
 ): string => {
   const template = `
   <!DOCTYPE html>
@@ -8,7 +10,7 @@ export const verifyEmailTemplate = (
    <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="${process.env.ADMIN_WEB_PORTAL_URL}/email_assets/Cruise-Crew-IQ-logo.png">
-    <title>Verify Your Email</title>
+    <title>Dock Location Notification</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body style="margin: 0; padding: 32px;">
@@ -25,19 +27,21 @@ export const verifyEmailTemplate = (
       <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
        <tr>
         <td style="color: black; font-family: 'open sans', sans-serif; font-weight: 300; font-size: 32px; padding: 96px 32px 0px 32px;">
-          Verify Your Email<br><br>
+          Dock Location Update<br><br>
         <b style="color:#D50057; font-weight: 700; font-size: 24px">${name},</b><br>
-        <span style="font-size: 18px; font-weight: 400; line-height: 18px;">Thank you for registering with us. Please verify your email address by clicking the button below.<br></span><br>
+        <span style="font-size: 18px; font-weight: 400; line-height: 18px;">
+          We are excited to welcome you on board! The hotel boat will be docked at the following location:<br><br>
+          <b>${dockLocation}</b><br><br>
+          <b>Docking Time:</b> ${dockingTime}<br>
+          <b>Departure Time:</b> ${departureTime}
+        </span><br>
         </td>
        </tr>
        <tr>
-        <td style="padding: 0px 32px 0px 32px;">
-          <a href="${verificationLink}" style="background-color: #D50057; border-radius: 32px; color: #ffffff; font-size: 14px; font-family: 'open sans', sans-serif; font-weight: 600; padding: 16px 48px; text-decoration: none;">Verify Email</a>
-        </td>
-       </tr>
-       <tr>
-        <td style="color: black; font-family: 'open sans', sans-serif; font-weight: 300; font-size: 32px; padding: 64px 32px 0px 32px;">
-          <span style="font-size: 18px; color:#8C9091; line-height: 14px;">This link will remain active for the next 24 hours. If it expires, kindly request a new verification email.<br><br></span><br>
+        <td style="color: black; font-family: 'open sans', sans-serif; font-weight: 300; font-size: 18px; padding: 32px;">
+          <span style="color:#8C9091; line-height: 22px;">
+            If you have any questions or need assistance finding the dock, feel free to contact our team. We look forward to seeing you soon!<br><br>
+          </span>
         </td>
        </tr>
       </table>

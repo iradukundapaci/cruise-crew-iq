@@ -1,5 +1,3 @@
-import { IAppConfig } from "../__shared__/interfaces/app-config.interface";
-import { JwtRefreshStrategy } from "./strategies/refresh-jwt.strategy";
 import { PasswordEncryption } from "./utils/password-encrytion.util";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { JwtStrategy } from "./strategies/jwt.strategy";
@@ -9,6 +7,7 @@ import { PassportModule } from "@nestjs/passport";
 import { Global, Module } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { JwtModule } from "@nestjs/jwt";
+import { IAppConfig } from "src/__shared__/interfaces/app-config.interface";
 
 @Global()
 @Module({
@@ -28,13 +27,7 @@ import { JwtModule } from "@nestjs/jwt";
     UsersModule,
   ],
   controllers: [AuthController],
-  providers: [
-    AuthService,
-    JwtStrategy,
-    JwtRefreshStrategy,
-    ConfigService,
-    PasswordEncryption,
-  ],
+  providers: [AuthService, JwtStrategy, ConfigService, PasswordEncryption],
   exports: [JwtModule, AuthService],
 })
 export class AuthModule {}

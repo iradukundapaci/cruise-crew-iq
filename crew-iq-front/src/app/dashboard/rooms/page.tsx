@@ -28,7 +28,6 @@ import axios from 'axios';
 
 import { DataTable } from '@/components/dashboard/customer/customers-table';
 
-// Define TypeScript interfaces
 interface Room {
   id: number;
   roomNumber: string;
@@ -85,6 +84,8 @@ export default function Page(): React.JSX.Element {
   const [snackbarSeverity, setSnackbarSeverity] = React.useState<'success' | 'error'>('success');
 
   // Dialog state for delete confirmation
+  const [checkoutDialogOpen, setCheckoutDialogOpen] = React.useState(false);
+  const [roomToCheckout, setRoomToCheckout] = React.useState<Room | null>(null);
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false);
   const [roomToDelete, setRoomToDelete] = React.useState<Room | null>(null);
 
@@ -123,6 +124,11 @@ export default function Page(): React.JSX.Element {
           <IconButton onClick={() => handleAssignRoom(row)}>
             <PlusIcon />
           </IconButton>
+          {row.occupied && (
+            <IconButton onClick={() => handleCheckoutRoom(row)} color="warning">
+              <DownloadIcon />
+            </IconButton>
+          )}
         </Stack>
       ),
     },
@@ -130,31 +136,31 @@ export default function Page(): React.JSX.Element {
 
   const getToken = () => localStorage.getItem('accessToken');
 
-  React.useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const response = await axios.get<ApiResponse>('http://localhost:8000/api/v1/rooms', {
-          params: {
-            page: page + 1,
-            size: rowsPerPage,
-          },
-          headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${getToken()}`,
-          },
-        });
+  const fetchRooms = React.useCallback(async () => {
+    try {
+      const response = await axios.get<ApiResponse>('http://localhost:8000/api/v1/rooms', {
+        params: {
+          page: page + 1,
+          size: rowsPerPage,
+        },
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
 
-        setRooms(response.data.payload.items);
-        setTotalRooms(response.data.payload.meta.totalItems);
-      } catch (error) {
-        console.error('Failed to fetch rooms', error);
-        showNotification('Failed to fetch rooms', 'error');
-      }
-    };
-
-    fetchRooms();
+      setRooms(response.data.payload.items);
+      setTotalRooms(response.data.payload.meta.totalItems);
+    } catch (error) {
+      console.error('Failed to fetch rooms', error);
+      showNotification('Failed to fetch rooms', 'error');
+    }
   }, [page, rowsPerPage]);
+
+  React.useEffect(() => {
+    fetchRooms();
+  }, [fetchRooms]);
 
   const showNotification = (message: string, severity: 'success' | 'error') => {
     setSnackbarMessage(message);
@@ -219,6 +225,7 @@ export default function Page(): React.JSX.Element {
       setAssignDialogOpen(false);
       setUserEmail('');
       setRoomToAssign(null);
+      await fetchRooms();
       setPage(page);
     } catch (error) {
       console.error('Failed to assign room', error);
@@ -237,7 +244,7 @@ export default function Page(): React.JSX.Element {
       });
       showNotification('Room created successfully!', 'success');
       handleCloseModal();
-      // Refresh the rooms list
+      await fetchRooms();
       setPage(0);
     } catch (error) {
       console.error('Failed to create room', error);
@@ -262,7 +269,7 @@ export default function Page(): React.JSX.Element {
       });
       showNotification('Room updated successfully!', 'success');
       handleCloseModal();
-      // Refresh the rooms list
+      await fetchRooms();
       setPage(page);
     } catch (error) {
       console.error('Failed to update room', error);
@@ -289,7 +296,7 @@ export default function Page(): React.JSX.Element {
       showNotification('Room deleted successfully!', 'success');
       setDeleteDialogOpen(false);
       setRoomToDelete(null);
-      // Refresh the rooms list
+      await fetchRooms();
       setPage(0);
     } catch (error) {
       console.error('Failed to delete room', error);
@@ -301,19 +308,38 @@ export default function Page(): React.JSX.Element {
     setSnackbarOpen(false);
   };
 
+  const handleCheckoutRoom = (room: Room) => {
+    setRoomToCheckout(room);
+    setCheckoutDialogOpen(true);
+  };
+
+  const confirmCheckoutRoom = async () => {
+    if (!roomToCheckout) return;
+
+    try {
+      await axios.patch(`http://localhost:8000/api/v1/rooms/checkout/${roomToCheckout.id}`, {
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+
+      showNotification(`Room ${roomToCheckout.roomNumber} checked out successfully`, 'success');
+      setCheckoutDialogOpen(false);
+      setRoomToCheckout(null);
+      await fetchRooms();
+    } catch (error) {
+      console.error('Failed to checkout room', error);
+      showNotification('Failed to checkout room', 'error');
+    }
+  };
+
   return (
     <Stack spacing={3}>
       <Stack direction="row" spacing={3}>
         <Stack spacing={1} sx={{ flex: '1 1 auto' }}>
           <Typography variant="h4">Hotel Rooms</Typography>
-          <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-            <Button color="inherit" startIcon={<UploadIcon fontSize="var(--icon-fontSize-md)" />}>
-              Import
-            </Button>
-            <Button color="inherit" startIcon={<DownloadIcon fontSize="var(--icon-fontSize-md)" />}>
-              Export
-            </Button>
-          </Stack>
         </Stack>
         <div>
           <Button
@@ -437,6 +463,21 @@ export default function Page(): React.JSX.Element {
           <Button onClick={() => setAssignDialogOpen(false)}>Cancel</Button>
           <Button onClick={confirmAssignRoom} color="primary">
             Assign
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={checkoutDialogOpen} onClose={() => setCheckoutDialogOpen(false)}>
+        <DialogTitle>Confirm Checkout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to check out Room {roomToCheckout?.roomNumber}? This will mark the room as available
+            and remove the current guest.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setCheckoutDialogOpen(false)}>Cancel</Button>
+          <Button onClick={confirmCheckoutRoom} color="primary">
+            Checkout
           </Button>
         </DialogActions>
       </Dialog>

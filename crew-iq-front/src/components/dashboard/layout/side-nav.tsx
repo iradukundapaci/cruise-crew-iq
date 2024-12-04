@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { jwtDecode } from 'jwt-decode';
 
 import type { NavItemConfig } from '@/types/nav';
 import { paths } from '@/paths';
@@ -14,10 +15,42 @@ import { isNavItemActive } from '@/lib/is-nav-item-active';
 import { Logo } from '@/components/core/logo';
 
 import { navItems } from './config';
+import { UserRole } from './mobile-nav';
 import { navIcons } from './nav-icons';
 
 export function SideNav(): React.JSX.Element {
   const pathname = usePathname();
+  const token = localStorage.getItem('accessToken');
+  let userRole: UserRole | null = null;
+
+  if (token) {
+    try {
+      const decodedToken: any = jwtDecode(token);
+      userRole = decodedToken.role;
+    } catch (error) {
+      console.error('Error decoding token:', error);
+    }
+  }
+
+  const filteredNavItems = () => {
+    if (!userRole) return [];
+
+    switch (userRole) {
+      case UserRole.ADMIN:
+        return navItems;
+
+      case UserRole.CLERK:
+        return navItems.filter((item) => item.key !== 'users' && item.key !== 'licenses' && item.key !== 'schedule');
+
+      case UserRole.CREW:
+        return navItems.filter((item) => item.key !== 'users' && item.key !== 'schedule' && item.key !== 'licenses');
+
+      default:
+        return [];
+    }
+  };
+
+  const navItemsToDisplay = filteredNavItems();
 
   return (
     <Box
@@ -54,7 +87,7 @@ export function SideNav(): React.JSX.Element {
       </Stack>
       <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
       <Box component="nav" sx={{ flex: '1 1 auto', p: '12px' }}>
-        {renderNavItems({ pathname, items: navItems })}
+        {renderNavItems({ pathname, items: navItemsToDisplay })}
       </Box>
       <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
     </Box>

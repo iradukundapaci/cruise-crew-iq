@@ -30,10 +30,6 @@ export function appConfig(): IAppConfig {
       secret: process.env.JWT_SECRET,
       expiresIn: process.env.JWT_EXPIRES_IN,
     },
-    jwtRefresh: {
-      secret: process.env.JWT_REFRESH_SECRET,
-      expiresIn: process.env.JWT_REFRESH_EXPIRES_IN,
-    },
     backdoor: {
       enabled: process.env.BACKDOOR_ENABLED === "true",
       username: process.env.BACKDOOR_USERNAME,
@@ -42,9 +38,6 @@ export function appConfig(): IAppConfig {
     emails: {
       from: process.env.EMAIL_FROM,
       sendGridApiKey: process.env.SENDGRID_API_KEY,
-    },
-    url: {
-      client: process.env.CLIENT_URL,
     },
   };
 }
@@ -59,8 +52,6 @@ function validateEnvVariables(): void {
     "DB_PORT",
     "JWT_SECRET",
     "JWT_EXPIRES_IN",
-    "JWT_REFRESH_SECRET",
-    "JWT_REFRESH_EXPIRES_IN",
     "EMAIL_FROM",
     "SENDGRID_API_KEY",
   ];
