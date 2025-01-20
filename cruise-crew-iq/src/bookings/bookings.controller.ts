@@ -1,27 +1,35 @@
-import { Controller, Body, Param, Query } from "@nestjs/common";
 import {
-  ApiRequestBody,
+  Controller,
+  Body,
+  Query,
+  Param,
+  Res,
+  StreamableFile,
+} from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
+import { plainToInstance } from "class-transformer";
+import { Response } from "express";
+import {
+  PostOperation,
   CreatedResponse,
-  DeleteOperation,
   ErrorResponses,
+  UnauthorizedResponse,
   ForbiddenResponse,
   GetOperation,
-  OkResponse,
   PaginatedOkResponse,
+  OkResponse,
   PatchOperation,
-  PostOperation,
-  UnauthorizedResponse,
+  ApiRequestBody,
+  DeleteOperation,
 } from "src/__shared__/decorators";
 import { GenericResponse } from "src/__shared__/dto/generic-response.dto";
-import { plainToInstance } from "class-transformer";
-import { ApiTags } from "@nestjs/swagger";
-import { UserRole } from "src/__shared__/enums/user-role.enum";
 import { Authorize } from "src/auth/decorators/authorize.decorator";
 import { JwtGuard } from "src/auth/guards/jwt.guard";
 import { BookingsService } from "./bookings.service";
 import { BookingsDto } from "./dto/booking.dto";
 import { CreateBookingsDto } from "./dto/create-booking.dto";
 import { FetchBookingsDto } from "./dto/fetch-booking.dto";
+import { GenerateReportDto } from "./dto/generate-report.dto";
 import { UpdateBookingsDto } from "./dto/update-booking.dto";
 
 @ApiTags("Bookings")
@@ -39,9 +47,27 @@ export class BookingsController {
     return new GenericResponse("Bookings created successfully");
   }
 
+  @GetOperation("report", "Generate and Download Report")
+  @OkResponse()
+  async generateAndDownloadReport(
+    @Query() dto: GenerateReportDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const { data, contentType } =
+      await this.bookingsService.generateReport(dto);
+
+    const filename = `booking-report-${dto.type}-${new Date().toISOString()}.${dto.format}`;
+
+    res.set({
+      "Content-Type": contentType,
+      "Content-Disposition": `attachment; filename="${filename}"`,
+    });
+
+    return new StreamableFile(data);
+  }
+
   @GetOperation("", "Get all bookings")
   @PaginatedOkResponse(FetchBookingsDto.Output)
-  @Authorize(JwtGuard)
   @ErrorResponses(UnauthorizedResponse, ForbiddenResponse)
   async getAllBookings(@Query() fetchBookingsDto: FetchBookingsDto.Input) {
     const response =
