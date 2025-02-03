@@ -93,12 +93,12 @@ export type PlasmicBooking__OverridesType = {
   navbar?: Flex__<typeof Navbar>;
   bookingForm?: Flex__<'h2'>;
   form?: Flex__<'form'>;
+  firstName?: Flex__<typeof TextInput>;
   lastName?: Flex__<typeof TextInput>;
-  lastName2?: Flex__<typeof TextInput>;
   phoneNumber?: Flex__<typeof TextInput>;
   email?: Flex__<typeof TextInput>;
-  numberOfAdults2?: Flex__<typeof TextInput>;
-  numberOfAdults3?: Flex__<typeof TextInput>;
+  arrivalTime?: Flex__<typeof TextInput>;
+  departureTime?: Flex__<typeof TextInput>;
   numberOfAdults?: Flex__<typeof TextInput>;
   numberOfChildren?: Flex__<typeof TextInput>;
   specialRequest?: Flex__<'textarea'>;
@@ -146,12 +146,14 @@ function PlasmicBooking__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: 'lastName.value',
+        path: 'firstName.value',
         type: 'private',
         variableType: 'text',
         initFunc: ({ $props, $state, $queries, $ctx }) => '',
@@ -187,19 +189,25 @@ function PlasmicBooking__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ``,
       },
       {
-        path: 'lastName2.value',
+        path: 'lastName.value',
         type: 'private',
         variableType: 'text',
         initFunc: ({ $props, $state, $queries, $ctx }) => '',
       },
       {
-        path: 'numberOfAdults2.value',
+        path: 'departureTime.value',
         type: 'private',
         variableType: 'text',
         initFunc: ({ $props, $state, $queries, $ctx }) => '',
       },
       {
-        path: 'numberOfAdults3.value',
+        path: 'arrivalTime.value',
+        type: 'private',
+        variableType: 'text',
+        initFunc: ({ $props, $state, $queries, $ctx }) => '',
+      },
+      {
+        path: 'variable',
         type: 'private',
         variableType: 'text',
         initFunc: ({ $props, $state, $queries, $ctx }) => '',
@@ -279,38 +287,58 @@ function PlasmicBooking__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox__jH5Bo)}
               >
                 <TextInput
-                  data-plasmic-name={'lastName'}
-                  data-plasmic-override={overrides.lastName}
-                  className={classNames('__wab_instance', sty.lastName)}
+                  data-plasmic-name={'firstName'}
+                  data-plasmic-override={overrides.firstName}
+                  className={classNames('__wab_instance', sty.firstName)}
                   name={'firstName'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ['lastName', 'value'])(
-                      ((e) => e.target?.value).apply(null, eventArgs),
-                    );
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ['firstName', 'value'])(
+                        ((e) => e.target?.value).apply(null, eventArgs),
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'First Name'}
                   required={true}
                   type={'text'}
                   value={
-                    generateStateValueProp($state, ['lastName', 'value']) ?? ''
+                    generateStateValueProp($state, ['firstName', 'value']) ?? ''
                   }
                 />
 
                 <TextInput
-                  data-plasmic-name={'lastName2'}
-                  data-plasmic-override={overrides.lastName2}
-                  className={classNames('__wab_instance', sty.lastName2)}
+                  data-plasmic-name={'lastName'}
+                  data-plasmic-override={overrides.lastName}
+                  className={classNames('__wab_instance', sty.lastName)}
                   name={'lastName'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ['lastName2', 'value'])(
-                      ((e) => e.target?.value).apply(null, eventArgs),
-                    );
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ['lastName', 'value'])(
+                        ((e) => e.target?.value).apply(null, eventArgs),
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'Last Name'}
                   required={true}
                   type={'text'}
                   value={
-                    generateStateValueProp($state, ['lastName2', 'value']) ?? ''
+                    generateStateValueProp($state, ['lastName', 'value']) ?? ''
                   }
                 />
               </Stack__>
@@ -324,10 +352,21 @@ function PlasmicBooking__RenderFunc(props: {
                   data-plasmic-override={overrides.phoneNumber}
                   className={classNames('__wab_instance', sty.phoneNumber)}
                   name={'phoneNumber'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ['phoneNumber', 'value'])(
-                      ((e) => e.target?.value).apply(null, eventArgs),
-                    );
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        'phoneNumber',
+                        'value',
+                      ])(((e) => e.target?.value).apply(null, eventArgs));
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'Phone Number'}
                   required={true}
@@ -343,10 +382,20 @@ function PlasmicBooking__RenderFunc(props: {
                   data-plasmic-override={overrides.email}
                   className={classNames('__wab_instance', sty.email)}
                   name={'email'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ['email', 'value'])(
-                      ((e) => e.target?.value).apply(null, eventArgs),
-                    );
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ['email', 'value'])(
+                        ((e) => e.target?.value).apply(null, eventArgs),
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'Email'}
                   required={true}
@@ -361,72 +410,186 @@ function PlasmicBooking__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__xMzBs)}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3Seqf,
-                  )}
-                >
-                  {'Arrival Time'}
+                <div className={classNames(projectcss.all, sty.freeBox__mLwIw)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___3Seqf,
+                    )}
+                  >
+                    {'Arrival Time'}
+                  </div>
+                  <TextInput
+                    data-plasmic-name={'arrivalTime'}
+                    data-plasmic-override={overrides.arrivalTime}
+                    className={classNames('__wab_instance', sty.arrivalTime)}
+                    name={'checkIn'}
+                    onChange={async (...eventArgs: any) => {
+                      // Update the state value
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          'arrivalTime',
+                          'value',
+                        ])(((e) => e.target?.value).apply(null, eventArgs));
+                      }).apply(null, eventArgs);
+
+                      // Skip if it's initialization
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      // Validate dates
+                      (async (event) => {
+                        const arrivalDate = new Date(event.target.value);
+                        const departureDate = new Date(
+                          $state.departureTime.value,
+                        );
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+
+                        // Check if arrival date is in the past
+                        if (arrivalDate < today) {
+                          const actionArgs = {
+                            args: [
+                              'error',
+                              'Arrival date cannot be in the past',
+                              undefined,
+                              3,
+                            ],
+                          };
+                          await $globalActions[
+                            'plasmic-antd5-config-provider.showNotification'
+                          ]?.apply(null, [...actionArgs.args]);
+                          return;
+                        }
+
+                        // Check if departure date is set and is before arrival
+                        if (
+                          $state.departureTime.value &&
+                          departureDate < arrivalDate
+                        ) {
+                          const actionArgs = {
+                            args: [
+                              'error',
+                              'Departure date must be after arrival date',
+                              undefined,
+                              3,
+                            ],
+                          };
+                          await $globalActions[
+                            'plasmic-antd5-config-provider.showNotification'
+                          ]?.apply(null, [...actionArgs.args]);
+                        }
+                      }).apply(null, eventArgs);
+                    }}
+                    placeholder={'Check-in'}
+                    required={true}
+                    type={'date'}
+                    value={
+                      generateStateValueProp($state, [
+                        'arrivalTime',
+                        'value',
+                      ]) ?? ''
+                    }
+                    min={new Date().toISOString().split('T')[0]} // Set minimum date to today
+                  />
                 </div>
-                <TextInput
-                  data-plasmic-name={'numberOfAdults2'}
-                  data-plasmic-override={overrides.numberOfAdults2}
-                  className={classNames('__wab_instance', sty.numberOfAdults2)}
-                  name={'checkIn'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      'numberOfAdults2',
-                      'value',
-                    ])(((e) => e.target?.value).apply(null, eventArgs));
-                  }}
-                  placeholder={'Number of adults'}
-                  required={true}
-                  type={'date'}
-                  value={
-                    generateStateValueProp($state, [
-                      'numberOfAdults2',
-                      'value',
-                    ]) ?? ''
-                  }
-                />
-              </Stack__>
-              <Stack__
-                as={'div'}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iwCad)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bPeOu,
-                  )}
-                >
-                  {'Departure Time'}
+                <div className={classNames(projectcss.all, sty.freeBox__ylDa3)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bPeOu,
+                    )}
+                  >
+                    {'Departure Time'}
+                  </div>
+                  <TextInput
+                    data-plasmic-name={'departureTime'}
+                    data-plasmic-override={overrides.departureTime}
+                    autoFocus={false}
+                    className={classNames('__wab_instance', sty.departureTime)}
+                    name={'checkOut'}
+                    onChange={async (...eventArgs: any) => {
+                      // Update the state value
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          'departureTime',
+                          'value',
+                        ])(((e) => e.target?.value).apply(null, eventArgs));
+                      }).apply(null, eventArgs);
+
+                      // Skip if it's initialization
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      // Validate dates
+                      (async (event) => {
+                        const departureDate = new Date(event.target.value);
+                        const arrivalDate = new Date($state.arrivalTime.value);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+
+                        // Check if departure date is in the past
+                        if (departureDate < today) {
+                          const actionArgs = {
+                            args: [
+                              'error',
+                              'Departure date cannot be in the past',
+                              undefined,
+                              3,
+                            ],
+                          };
+                          await $globalActions[
+                            'plasmic-antd5-config-provider.showNotification'
+                          ]?.apply(null, [...actionArgs.args]);
+                          return;
+                        }
+
+                        // Check if arrival date is set and departure is before arrival
+                        if (
+                          $state.arrivalTime.value &&
+                          departureDate < arrivalDate
+                        ) {
+                          const actionArgs = {
+                            args: [
+                              'error',
+                              'Departure date must be after arrival date',
+                              undefined,
+                              3,
+                            ],
+                          };
+                          await $globalActions[
+                            'plasmic-antd5-config-provider.showNotification'
+                          ]?.apply(null, [...actionArgs.args]);
+                        }
+                      }).apply(null, eventArgs);
+                    }}
+                    placeholder={'Check-out'}
+                    required={true}
+                    type={'date'}
+                    value={
+                      generateStateValueProp($state, [
+                        'departureTime',
+                        'value',
+                      ]) ?? ''
+                    }
+                    min={
+                      $state.arrivalTime.value ||
+                      new Date().toISOString().split('T')[0]
+                    } // Set minimum date to arrival date or today
+                  />
                 </div>
-                <TextInput
-                  data-plasmic-name={'numberOfAdults3'}
-                  data-plasmic-override={overrides.numberOfAdults3}
-                  className={classNames('__wab_instance', sty.numberOfAdults3)}
-                  name={'checkOut'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      'numberOfAdults3',
-                      'value',
-                    ])(((e) => e.target?.value).apply(null, eventArgs));
-                  }}
-                  placeholder={'Number of adults'}
-                  required={true}
-                  type={'date'}
-                  value={
-                    generateStateValueProp($state, [
-                      'numberOfAdults3',
-                      'value',
-                    ]) ?? ''
-                  }
-                />
               </Stack__>
               <Stack__
                 as={'div'}
@@ -438,11 +601,21 @@ function PlasmicBooking__RenderFunc(props: {
                   data-plasmic-override={overrides.numberOfAdults}
                   className={classNames('__wab_instance', sty.numberOfAdults)}
                   name={'numberOfAdults'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      'numberOfAdults',
-                      'value',
-                    ])(((e) => e.target?.value).apply(null, eventArgs));
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        'numberOfAdults',
+                        'value',
+                      ])(((e) => e.target?.value).apply(null, eventArgs));
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'Number of adults'}
                   required={true}
@@ -460,11 +633,21 @@ function PlasmicBooking__RenderFunc(props: {
                   data-plasmic-override={overrides.numberOfChildren}
                   className={classNames('__wab_instance', sty.numberOfChildren)}
                   name={'numberOfKids'}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      'numberOfChildren',
-                      'value',
-                    ])(((e) => e.target?.value).apply(null, eventArgs));
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        'numberOfChildren',
+                        'value',
+                      ])(((e) => e.target?.value).apply(null, eventArgs));
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
                   placeholder={'Number of children'}
                   required={false}
@@ -500,11 +683,13 @@ function PlasmicBooking__RenderFunc(props: {
                     sty.specialRequest,
                   )}
                   name={'specialRequest'}
-                  onChange={(e) => {
-                    generateStateOnChangeProp($state, [
-                      'specialRequest',
-                      'value',
-                    ])(e.target.value);
+                  onChange={async (...eventArgs: any) => {
+                    ((e) => {
+                      generateStateOnChangeProp($state, [
+                        'specialRequest',
+                        'value',
+                      ])(e.target.value);
+                    }).apply(null, eventArgs);
                   }}
                   placeholder={'Enter your request'}
                   ref={(ref) => {
@@ -524,6 +709,40 @@ function PlasmicBooking__RenderFunc(props: {
                 className={classNames('__wab_instance', sty.button)}
                 onClick={async (event) => {
                   const $steps = {};
+
+                  $steps['updateVariable'] =
+                    new Date($state.departureTime.value) > new Date()
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ['variable'],
+                            },
+                            operation: 0,
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount,
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps['updateVariable'] != null &&
+                    typeof $steps['updateVariable'] === 'object' &&
+                    typeof $steps['updateVariable'].then === 'function'
+                  ) {
+                    $steps['updateVariable'] = await $steps['updateVariable'];
+                  }
                 }}
                 submitsForm={true}
               >
@@ -548,12 +767,12 @@ const PlasmicDescendants = {
     'navbar',
     'bookingForm',
     'form',
+    'firstName',
     'lastName',
-    'lastName2',
     'phoneNumber',
     'email',
-    'numberOfAdults2',
-    'numberOfAdults3',
+    'arrivalTime',
+    'departureTime',
     'numberOfAdults',
     'numberOfChildren',
     'specialRequest',
@@ -564,23 +783,23 @@ const PlasmicDescendants = {
   bookingForm: ['bookingForm'],
   form: [
     'form',
+    'firstName',
     'lastName',
-    'lastName2',
     'phoneNumber',
     'email',
-    'numberOfAdults2',
-    'numberOfAdults3',
+    'arrivalTime',
+    'departureTime',
     'numberOfAdults',
     'numberOfChildren',
     'specialRequest',
     'button',
   ],
+  firstName: ['firstName'],
   lastName: ['lastName'],
-  lastName2: ['lastName2'],
   phoneNumber: ['phoneNumber'],
   email: ['email'],
-  numberOfAdults2: ['numberOfAdults2'],
-  numberOfAdults3: ['numberOfAdults3'],
+  arrivalTime: ['arrivalTime'],
+  departureTime: ['departureTime'],
   numberOfAdults: ['numberOfAdults'],
   numberOfChildren: ['numberOfChildren'],
   specialRequest: ['specialRequest'],
@@ -595,12 +814,12 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   bookingForm: 'h2';
   form: 'form';
+  firstName: typeof TextInput;
   lastName: typeof TextInput;
-  lastName2: typeof TextInput;
   phoneNumber: typeof TextInput;
   email: typeof TextInput;
-  numberOfAdults2: typeof TextInput;
-  numberOfAdults3: typeof TextInput;
+  arrivalTime: typeof TextInput;
+  departureTime: typeof TextInput;
   numberOfAdults: typeof TextInput;
   numberOfChildren: typeof TextInput;
   specialRequest: 'textarea';
@@ -696,12 +915,12 @@ export const PlasmicBooking = Object.assign(
     navbar: makeNodeComponent('navbar'),
     bookingForm: makeNodeComponent('bookingForm'),
     form: makeNodeComponent('form'),
+    firstName: makeNodeComponent('firstName'),
     lastName: makeNodeComponent('lastName'),
-    lastName2: makeNodeComponent('lastName2'),
     phoneNumber: makeNodeComponent('phoneNumber'),
     email: makeNodeComponent('email'),
-    numberOfAdults2: makeNodeComponent('numberOfAdults2'),
-    numberOfAdults3: makeNodeComponent('numberOfAdults3'),
+    arrivalTime: makeNodeComponent('arrivalTime'),
+    departureTime: makeNodeComponent('departureTime'),
     numberOfAdults: makeNodeComponent('numberOfAdults'),
     numberOfChildren: makeNodeComponent('numberOfChildren'),
     specialRequest: makeNodeComponent('specialRequest'),

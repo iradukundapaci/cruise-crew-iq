@@ -2,9 +2,10 @@
   width: 100%;
   left: auto;
   top: auto;
-  background: #ffffff00;
+  background: var(--token-Pxe4wDL2kJpb);
   height: 48px;
   min-height: 48px;
+  color: #000000;
   min-width: 0;
   border-radius: 6px;
   padding: 0px 0px 0px 10px;
@@ -16,9 +17,18 @@
 .inputcolor_dark {
   color: #ffffff;
 }
+.input___focusVisibleWithin {
+  outline: none;
+}
+.input:focus-within {
+  outline: none;
+}
 .input::placeholder {
   color: #706f6c;
 }
 .inputcolor_dark::placeholder {
   color: #c8c7c1;
+}
+.input:focus-within::placeholder {
+  outline: none;
 }
